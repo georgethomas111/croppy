@@ -2,8 +2,8 @@ name = "worker-rust"
 main = "build/worker/shim.mjs"
 compatibility_date = "2023-12-01"
 
+workers_dev = false
+route = { pattern = "tranquilfarms.in/rust", zone_name = "tranquilfarms.in" }
+
 [build]
 command = "cargo install -q worker-build && worker-build --release"
-
-[env.dev]
-build = { command = "cargo install -q worker-build && worker-build --dev" }
