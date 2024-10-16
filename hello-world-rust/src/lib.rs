@@ -6,5 +6,8 @@ async fn main(req: Request, env: Env, ctx: Context) -> Result<Response> {
         return Response::error("Please use Post to send an image", 405);
     }
 
-    return Response::ok("Got a non get request");
+    let body = req.text();
+    let msg = format!("Got a non get request with body size {}", body.len());
+
+    return Response::ok(msg);
 }
