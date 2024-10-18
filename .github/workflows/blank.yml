@@ -14,13 +14,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-       uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up Rust
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
 
       - name: Install dependencies
         run: |
@@ -31,7 +30,7 @@ jobs:
         run: cd hello-world-rust; make cargo-build; cd ../;
 
       - name: build-digital-ocean 
-        run: cd crop-rust; cargo build --release;
+        run: cd crop-rust; cargo build --release; cd ../;
 
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
