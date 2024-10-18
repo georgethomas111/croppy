@@ -39,6 +39,7 @@ jobs:
 
       - name: Deploy to DigitalOcean Droplet
         run: |
+          cd crop-rust
           scp -o StrictHostKeyChecking=no target/release/crop-rust root@24.199.111.197:.
           ssh -o StrictHostKeyChecking=no root@24.199.111.197 "systemctl restart crop-rust"
 
