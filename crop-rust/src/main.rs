@@ -108,7 +108,7 @@ async fn main() -> std::io::Result<()> {
             .route("/upload", web::post().to(upload_image_bytes)) // Upload route
             .route("/image", web::get().to(get_uploaded_image)) // Get uploaded image route
     })
-    .bind(("127.0.0.1", port.parse::<u16>().unwrap()))? // Parse the port as u16
+    .bind(("0.0.0.0", port.parse::<u16>().unwrap()))? // Parse the port as u16
     .run()
     .await
 }
