@@ -1,3 +1,5 @@
+# pip install tensorflow flask pillow
+
 # app.py
 from flask import Flask, request, jsonify
 from PIL import Image
